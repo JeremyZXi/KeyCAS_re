@@ -47,17 +47,30 @@ module.exports = async function (config) {
       },
     ],
   })
+  // GrapesJS Plugin
+  config.addPlugin(StaticPlugin, {
+    routes: [
+      {
+        route: '/plugins/',
+        path: __dirname + '/node_modules/THE_GRAPESJS_PLUGIN/', // This assumes you have installed your plugin with npm
+      },
+    ],
+  })
+
+
+
+
 }
 
 const env = {
-  STORAGE_CONNECTORS: process.env.STORAGE_CONNECTORS || 'ftp,gitlab,gitlab2',
-  HOSTING_CONNECTORS: process.env.HOSTING_CONNECTORS || 'ftp,gitlab,gitlab2,download',
+  STORAGE_CONNECTORS: process.env.STORAGE_CONNECTORS || 'ftp,gitlab',
+  HOSTING_CONNECTORS: process.env.HOSTING_CONNECTORS || 'ftp,gitlab,download',
   SILEX_FS_ROOT: process.env.SILEX_FS_ROOT || join(process.cwd(), '/silex/storage'),
   SILEX_FS_HOSTING_ROOT: process.env.SILEX_FS_HOSTING_ROOT || join(process.cwd(), '/silex/hosting'),
   GITLAB_DISPLAY_NAME: process.env.GITLAB_DISPLAY_NAME || 'Gitlab',
-  GITLAB_CLIENT_ID: process.env.GITLAB_CLIENT_ID,
-  GITLAB_CLIENT_SECRET: process.env.GITLAB_CLIENT_SECRET,
-  GITLAB_DOMAIN: process.env.GITLAB_DOMAIN,
+  GITLAB_CLIENT_ID: process.env.GITLAB_CLIENT_ID||'83adc6e34df3dc4d98b6270ff3496ae71bbb117fa88c0559f05a47051d4953d4',
+  GITLAB_CLIENT_SECRET: process.env.GITLAB_CLIENT_SECRET||'gloas-f5d1c91e973919026578e94dde488fdaa721e52c8a03bb09fd34f192cdebf333',
+  GITLAB_DOMAIN: process.env.GITLAB_DOMAIN||'https://gitlab.com',
   GITLAB2_DISPLAY_NAME: process.env.GITLAB2_DISPLAY_NAME || 'Gitlab',
   GITLAB2_CLIENT_ID: process.env.GITLAB2_CLIENT_ID,
   GITLAB2_CLIENT_SECRET: process.env.GITLAB2_CLIENT_SECRET,
