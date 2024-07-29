@@ -56,20 +56,22 @@ module.exports = async function (config) {
       },
     ],
   })
-
-
-
-
+  config.url.SILEX_PROTOCOL = 'https'
+  config.url.SILEX_HOST = 'edit.newbeemc.online'
+  config.url.SILEX_PORT = 6805
 }
 
 const env = {
+  SILEX_HOST: process.env.SILEX_HOST ||'edit.newbeemc.online',
+  SILEX_PROTOCOL: process.env.SILEX_PROTOCOL || 'https',
+  SILEX_URL: process.env.SILEX_URL || 'https://edit.newbeemc.online',
   STORAGE_CONNECTORS: process.env.STORAGE_CONNECTORS || 'ftp,gitlab',
   HOSTING_CONNECTORS: process.env.HOSTING_CONNECTORS || 'ftp,gitlab,download',
   SILEX_FS_ROOT: process.env.SILEX_FS_ROOT || join(process.cwd(), '/silex/storage'),
   SILEX_FS_HOSTING_ROOT: process.env.SILEX_FS_HOSTING_ROOT || join(process.cwd(), '/silex/hosting'),
   GITLAB_DISPLAY_NAME: process.env.GITLAB_DISPLAY_NAME || 'Gitlab',
-  GITLAB_CLIENT_ID: process.env.GITLAB_CLIENT_ID||'83adc6e34df3dc4d98b6270ff3496ae71bbb117fa88c0559f05a47051d4953d4',
-  GITLAB_CLIENT_SECRET: process.env.GITLAB_CLIENT_SECRET||'gloas-f5d1c91e973919026578e94dde488fdaa721e52c8a03bb09fd34f192cdebf333',
+  GITLAB_CLIENT_ID: process.env.GITLAB_CLIENT_ID||'badebe529bb8f3f11ab5244a1078546899ea6649ca7eba63fedf0c3f07ca9832',
+  GITLAB_CLIENT_SECRET: process.env.GITLAB_CLIENT_SECRET||'gloas-f0b50afda663989da102fd24023c79e07878f5a602f18f685009fff9a7637a3d',
   GITLAB_DOMAIN: process.env.GITLAB_DOMAIN||'https://gitlab.com',
   GITLAB2_DISPLAY_NAME: process.env.GITLAB2_DISPLAY_NAME || 'Gitlab',
   GITLAB2_CLIENT_ID: process.env.GITLAB2_CLIENT_ID,
